@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+#Cache and database folder that can get fucked
+Builds/VisualStudio2017/.vs/ADX/v15/
