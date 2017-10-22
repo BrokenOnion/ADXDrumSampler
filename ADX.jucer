@@ -13,12 +13,6 @@
               jucerVersion="5.1.2">
   <MAINGROUP id="GTJxSj" name="ADX">
     <GROUP id="{FFD4FE6B-307A-6701-5B7E-8C786003EE15}" name="Source">
-      <FILE id="tqxceU" name="VelocityLayerComponent.cpp" compile="1" resource="0"
-            file="Source/VelocityLayerComponent.cpp"/>
-      <FILE id="k1zElJ" name="VelocityLayerComponent.h" compile="0" resource="0"
-            file="Source/VelocityLayerComponent.h"/>
-      <FILE id="lbGdPm" name="DrumContent.cpp" compile="1" resource="0" file="Source/DrumContent.cpp"/>
-      <FILE id="N9XC4L" name="DrumContent.h" compile="0" resource="0" file="Source/DrumContent.h"/>
       <FILE id="muVMy2" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="qeZ4se" name="PluginProcessor.h" compile="0" resource="0"
