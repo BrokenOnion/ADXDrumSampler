@@ -34,7 +34,7 @@ AdxAudioProcessorEditor::AdxAudioProcessorEditor (AdxAudioProcessor& ownerProc)
     //[/Constructor_pre]
 
     addAndMakeVisible (drumsList = new TabbedComponent (TabbedButtonBar::TabsAtLeft));
-    drumsList->setTabBarDepth (60);
+    drumsList->setTabBarDepth (50);
     drumsList->setCurrentTabIndex (-1);
 
     addAndMakeVisible (addDrumButton = new TextButton ("Add Drum Button"));
@@ -46,7 +46,7 @@ AdxAudioProcessorEditor::AdxAudioProcessorEditor (AdxAudioProcessor& ownerProc)
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (800, 600);
+    setSize (1024, 768);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -74,6 +74,15 @@ void AdxAudioProcessorEditor::paint (Graphics& g)
 
     g.fillAll (Colour (0xff323e44));
 
+    {
+        int x = 0, y = 0, width = 1024, height = 768;
+        Colour fillColour = Colour (0xff2a4da5);
+        //[UserPaintCustomArguments] Customize the painting arguments here..
+        //[/UserPaintCustomArguments]
+        g.setColour (fillColour);
+        g.fillRect (x, y, width, height);
+    }
+
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
 }
@@ -83,7 +92,7 @@ void AdxAudioProcessorEditor::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    drumsList->setBounds (16, 88, 768, 496);
+    drumsList->setBounds (16, 88, 992, 664);
     addDrumButton->setBounds (24, 16, 256, 56);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
@@ -123,11 +132,13 @@ BEGIN_JUCER_METADATA
                  componentName="" parentClasses="public AudioProcessorEditor"
                  constructorParams="AdxAudioProcessor&amp; ownerProc" variableInitialisers="AudioProcessorEditor(ownerProc), processor(ownerProc)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="800" initialHeight="600">
-  <BACKGROUND backgroundColour="ff323e44"/>
+                 fixedSize="0" initialWidth="1024" initialHeight="768">
+  <BACKGROUND backgroundColour="ff323e44">
+    <RECT pos="0 0 1024 768" fill="solid: ff2a4da5" hasStroke="0"/>
+  </BACKGROUND>
   <TABBEDCOMPONENT name="Drums List" id="6ead998e4b627b9d" memberName="drumsList"
-                   virtualName="" explicitFocusOrder="0" pos="16 88 768 496" orientation="left"
-                   tabBarDepth="60" initialTab="-1"/>
+                   virtualName="" explicitFocusOrder="0" pos="16 88 992 664" orientation="left"
+                   tabBarDepth="50" initialTab="-1"/>
   <TEXTBUTTON name="Add Drum Button" id="fed69c8000d479aa" memberName="addDrumButton"
               virtualName="" explicitFocusOrder="0" pos="24 16 256 56" bgColOff="ffa45c94"
               buttonText="Add new drum..." connectedEdges="0" needsCallback="1"
