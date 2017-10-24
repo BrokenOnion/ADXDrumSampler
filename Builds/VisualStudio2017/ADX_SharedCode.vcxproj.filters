@@ -391,6 +391,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Channel.cpp">
+      <Filter>ADX\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Sound.cpp">
+      <Filter>ADX\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\VelocityLayer.cpp">
+      <Filter>ADX\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drum.cpp">
+      <Filter>ADX\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>ADX\Source</Filter>
     </ClCompile>
@@ -2235,6 +2247,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Channel.h">
+      <Filter>ADX\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Sound.h">
+      <Filter>ADX\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\VelocityLayer.h">
+      <Filter>ADX\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drum.h">
+      <Filter>ADX\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>ADX\Source</Filter>
     </ClInclude>

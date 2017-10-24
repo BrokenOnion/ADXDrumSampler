@@ -56,6 +56,7 @@ AdxAudioProcessorEditor::AdxAudioProcessorEditor (AdxAudioProcessor& ownerProc)
 AdxAudioProcessorEditor::~AdxAudioProcessorEditor()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+	drumsList->clearTabs();
     //[/Destructor_pre]
 
     drumsList = nullptr;
@@ -74,15 +75,6 @@ void AdxAudioProcessorEditor::paint (Graphics& g)
 
     g.fillAll (Colour (0xff323e44));
 
-    {
-        int x = 0, y = 0, width = 1024, height = 768;
-        Colour fillColour = Colour (0xff2a4da5);
-        //[UserPaintCustomArguments] Customize the painting arguments here..
-        //[/UserPaintCustomArguments]
-        g.setColour (fillColour);
-        g.fillRect (x, y, width, height);
-    }
-
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
 }
@@ -92,7 +84,7 @@ void AdxAudioProcessorEditor::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    drumsList->setBounds (16, 88, 992, 664);
+    drumsList->setBounds (16, 96, 990, 660);
     addDrumButton->setBounds (24, 16, 256, 56);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
@@ -106,6 +98,7 @@ void AdxAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == addDrumButton)
     {
         //[UserButtonCode_addDrumButton] -- add your button handler code here..
+		drumsList->addTab("Name", Colour (0xffa45c94), new Drum(), true, -1);
         //[/UserButtonCode_addDrumButton]
     }
 
@@ -133,11 +126,9 @@ BEGIN_JUCER_METADATA
                  constructorParams="AdxAudioProcessor&amp; ownerProc" variableInitialisers="AudioProcessorEditor(ownerProc), processor(ownerProc)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="1024" initialHeight="768">
-  <BACKGROUND backgroundColour="ff323e44">
-    <RECT pos="0 0 1024 768" fill="solid: ff2a4da5" hasStroke="0"/>
-  </BACKGROUND>
+  <BACKGROUND backgroundColour="ff323e44"/>
   <TABBEDCOMPONENT name="Drums List" id="6ead998e4b627b9d" memberName="drumsList"
-                   virtualName="" explicitFocusOrder="0" pos="16 88 992 664" orientation="left"
+                   virtualName="" explicitFocusOrder="0" pos="16 96 990 660" orientation="left"
                    tabBarDepth="50" initialTab="-1"/>
   <TEXTBUTTON name="Add Drum Button" id="fed69c8000d479aa" memberName="addDrumButton"
               virtualName="" explicitFocusOrder="0" pos="24 16 256 56" bgColOff="ffa45c94"
