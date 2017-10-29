@@ -21,6 +21,8 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "PluginEditor.h"
+#include "PluginProcessor.h"
 //[/Headers]
 
 
@@ -36,7 +38,7 @@
 class Drum  : public Component,
               public Button::Listener,
               public Slider::Listener,
-			  public TextEditor::Listener
+              public ComboBox::Listener
 {
 public:
     //==============================================================================
@@ -45,13 +47,14 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+	TabbedComponent& getVelocities();
     //[/UserMethods]
 
     void paint (Graphics& g) override;
     void resized() override;
     void buttonClicked (Button* buttonThatWasClicked) override;
     void sliderValueChanged (Slider* sliderThatWasMoved) override;
-	void textEditorTextChanged(TextEditor& editorThatWasChanged) override;
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
 
 
 
@@ -61,7 +64,6 @@ private:
 
     //==============================================================================
     ScopedPointer<TextButton> addVelocityButton;
-    ScopedPointer<TabbedComponent> velocityLayers;
     ScopedPointer<Slider> noteSlider;
     ScopedPointer<Label> midiNoteLabel;
     ScopedPointer<Label> name;
@@ -71,7 +73,13 @@ private:
     ScopedPointer<Slider> panSlider;
     ScopedPointer<Label> panLabel;
     ScopedPointer<TextButton> testButton;
+    ScopedPointer<TextButton> setNameButton;
     ScopedPointer<TextButton> deleteButton;
+    ScopedPointer<TabbedComponent> velocityLayers;
+    ScopedPointer<Label> outputLabel;
+    ScopedPointer<ComboBox> comboBox;
+    ScopedPointer<ComboBox> chokeCombo;
+    ScopedPointer<Label> chokeLabel;
 
 
     //==============================================================================

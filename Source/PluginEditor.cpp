@@ -18,6 +18,8 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#include "Drum.h"
+#include "Windows.h"
 //[/Headers]
 
 #include "PluginEditor.h"
@@ -40,7 +42,6 @@ AdxAudioProcessorEditor::AdxAudioProcessorEditor (AdxAudioProcessor& ownerProc)
     addAndMakeVisible (addDrumButton = new TextButton ("Add Drum Button"));
     addDrumButton->setButtonText (TRANS("Add new drum..."));
     addDrumButton->addListener (this);
-    addDrumButton->setColour (TextButton::buttonColourId, Colour (0xffa45c94));
 
 
     //[UserPreSize]
@@ -98,8 +99,8 @@ void AdxAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == addDrumButton)
     {
         //[UserButtonCode_addDrumButton] -- add your button handler code here..
-		drumsList->addTab("Name", Colour (0xffa45c94), new Drum(), true, -1);
         //[/UserButtonCode_addDrumButton]
+
     }
 
     //[UserbuttonClicked_Post]
@@ -109,6 +110,10 @@ void AdxAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+TabbedComponent& AdxAudioProcessorEditor::getDrumsList()
+{
+	return *drumsList;
+}
 //[/MiscUserCode]
 
 

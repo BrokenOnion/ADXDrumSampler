@@ -1,18 +1,2 @@
-﻿  Channel.cpp
-  Drum.cpp
-  PluginEditor.cpp
-  PluginProcessor.cpp
-  Sound.cpp
-  VelocityLayer.cpp
-..\..\Source\PluginProcessor.cpp(83): warning C4100: 'index': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(87): warning C4100: 'index': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(92): warning C4100: 'newName': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(92): warning C4100: 'index': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(97): warning C4100: 'samplesPerBlock': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(97): warning C4100: 'sampleRate': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(133): warning C4100: 'midiMessages': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(152): warning C4189: 'channelData': local variable is initialized but not referenced
-..\..\Source\PluginProcessor.cpp(170): warning C4100: 'destData': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(177): warning C4100: 'sizeInBytes': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(177): warning C4100: 'data': unreferenced formal parameter
+﻿  Drum.cpp
   ADX_SharedCode.vcxproj -> J:\Home\Documents\GitHub\ADXDrumSampler\Builds\VisualStudio2017\x64\Debug\Shared Code\ADX.lib

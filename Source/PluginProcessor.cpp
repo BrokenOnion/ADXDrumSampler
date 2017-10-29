@@ -29,6 +29,7 @@ AdxAudioProcessor::AdxAudioProcessor()
 
 AdxAudioProcessor::~AdxAudioProcessor()
 {
+	channels.clear();
 }
 
 //==============================================================================
@@ -98,12 +99,22 @@ void AdxAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+	for (int i = 0; i < channels.size(); i++)
+	{
+		channels.getUnchecked(i)->prepareToPlay(samplesPerBlock, sampleRate);
+	}
+	this->sampleRate = sampleRate;
+	this->samplesPerBlock = samplesPerBlock;
 }
 
 void AdxAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
+	for (int i = 0; i < channels.size(); i++)
+	{
+		channels.getUnchecked(i)->releaseResources();
+	}
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -142,17 +153,32 @@ void AdxAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& mid
     // This is here to avoid people getting screaming feedback
     // when they first compile a plugin, but obviously you don't need to keep
     // this code if your algorithm always overwrites all the output channels.
-    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
+    for (int i = 0; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        float* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+	
+	for (int i = 0; i < channels.size(); i++)
+	{
+		AudioSampleBuffer tempBuffer(buffer);
+		int leftOut = channels.getUnchecked(i)->getNextAudioBlock(AudioSourceChannelInfo(tempBuffer));
+		for (int i = 0; i < buffer.getNumSamples(); i++)
+		{
+			buffer.addSample(leftOut, i, tempBuffer.getSample(leftOut, i));
+			buffer.addSample(leftOut + 1, i, tempBuffer.getSample(leftOut + 1, i));
+		}
+	}
+	
+	/*
+	AudioSampleBuffer tempBuffer(buffer);
+	int leftOut = roomChannel->getNextAudioBlock(AudioSourceChannelInfo(tempBuffer));
+	for (int i = 0; i < buffer.getNumSamples(); i++)
+	{
+		buffer.addSample(leftOut, i, tempBuffer.getSample(leftOut, i));
+		buffer.addSample(leftOut + 1, i, tempBuffer.getSample(leftOut + 1, i));
+	}
+	*/
 }
 
 //==============================================================================
@@ -185,4 +211,13 @@ void AdxAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new AdxAudioProcessor();
+}
+
+//==============================================================================
+Channel* AdxAudioProcessor::createChannel() 
+{
+	Channel* newChannel = new Channel();
+	newChannel->prepareToPlay(samplesPerBlock, sampleRate);
+	channels.add(newChannel);
+	return newChannel;
 }

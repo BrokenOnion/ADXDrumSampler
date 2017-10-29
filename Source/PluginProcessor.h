@@ -11,7 +11,7 @@
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
-
+#include "Channel.h"
 
 //==============================================================================
 /**
@@ -56,7 +56,14 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+	//==============================================================================
+	Channel* createChannel();
+
 private:
+	Array<Channel*> channels;
+	int samplesPerBlock;
+	double sampleRate;
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdxAudioProcessor)
 };

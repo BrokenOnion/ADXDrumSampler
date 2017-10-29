@@ -21,6 +21,9 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Drum.h"
+
+class Sound; //forward dec
 //[/Headers]
 
 
@@ -33,7 +36,10 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class VelocityLayer  : public Component
+class VelocityLayer  : public Component,
+                       public Button::Listener,
+                       public Slider::Listener,
+                       public ComboBox::Listener
 {
 public:
     //==============================================================================
@@ -42,10 +48,14 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+	TabbedComponent& getSoundsList();
     //[/UserMethods]
 
     void paint (Graphics& g) override;
     void resized() override;
+    void buttonClicked (Button* buttonThatWasClicked) override;
+    void sliderValueChanged (Slider* sliderThatWasMoved) override;
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
 
 
 
@@ -54,6 +64,15 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TabbedComponent> soundsList;
+    ScopedPointer<TextButton> addSoundButton;
+    ScopedPointer<TextButton> deleteLayerButton;
+    ScopedPointer<Label> upperLabel;
+    ScopedPointer<Label> lowerLabel;
+    ScopedPointer<Slider> upperSlider;
+    ScopedPointer<Slider> lowerSlider;
+    ScopedPointer<Label> functionLabel;
+    ScopedPointer<ComboBox> functionCombo;
 
 
     //==============================================================================

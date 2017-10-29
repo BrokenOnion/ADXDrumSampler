@@ -21,6 +21,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "VelocityLayer.h"
 //[/Headers]
 
 
@@ -33,7 +34,8 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Sound  : public Component
+class Sound  : public Component,
+               public Button::Listener
 {
 public:
     //==============================================================================
@@ -46,6 +48,7 @@ public:
 
     void paint (Graphics& g) override;
     void resized() override;
+    void buttonClicked (Button* buttonThatWasClicked) override;
 
 
 
@@ -54,6 +57,13 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TextButton> openDirectButton;
+    ScopedPointer<Label> directLabel;
+    ScopedPointer<TextButton> clearDirectButton;
+    ScopedPointer<Label> roomLabel;
+    ScopedPointer<TextButton> openRoomButton;
+    ScopedPointer<TextButton> clearRoomButton;
+    ScopedPointer<TextButton> deleteSoundButton;
 
 
     //==============================================================================
