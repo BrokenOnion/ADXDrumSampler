@@ -249,38 +249,37 @@ void Drum::resized()
 void Drum::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
-	int currentIndex = editor.getDrumsList().getCurrentTabIndex();
-	Component* current = editor.getDrumsList().getTabContentComponent(currentIndex);
+	//int currentIndex = editor.getDrumsList().getCurrentTabIndex();
+	//Component* current = editor.getDrumsList().getTabContentComponent(currentIndex);
     //[/UserbuttonClicked_Pre]
 
     if (buttonThatWasClicked == addVelocityButton)
     {
         //[UserButtonCode_addVelocityButton] -- add your button handler code here..
-		velocityLayers->addTab(" ", Colour(40, 50, 55), new VelocityLayer(*this), true, -1);
+		//velocityLayers->addTab(" ", Colour(40, 50, 55), new VelocityLayer(*this), true, -1);
         //[/UserButtonCode_addVelocityButton]
     }
     else if (buttonThatWasClicked == testButton)
     {
         //[UserButtonCode_testButton] -- add your button handler code here..
 		int random = rand() % 100 + 10;
-		playDrum(random);
         //[/UserButtonCode_testButton]
     }
     else if (buttonThatWasClicked == setNameButton)
     {
         //[UserButtonCode_setNameButton] -- add your button handler code here..
-		if (current == this)
+		//if (current == this)
 		{
-			editor.getDrumsList().setTabName(currentIndex, nameEditor->getText());
+		//	editor.getDrumsList().setTabName(currentIndex, nameEditor->getText());
 		}
         //[/UserButtonCode_setNameButton]
     }
     else if (buttonThatWasClicked == deleteButton)
     {
         //[UserButtonCode_deleteButton] -- add your button handler code here..
-		if (current == this)
+		//if (current == this)
 		{
-			editor.getDrumsList().removeTab(currentIndex);
+			//editor.getDrumsList().removeTab(currentIndex);
 		}
         //[/UserButtonCode_deleteButton]
     }

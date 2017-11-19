@@ -115,12 +115,14 @@ void Sound::paint (Graphics& g)
         g.fillRoundedRectangle (x, y, width, height, 10.000f);
         g.setColour (strokeColour);
         g.drawRoundedRectangle (x, y, width, height, 10.000f, 2.000f);
+		/*
 		if (directThumbnail.getNumChannels() != 0) 
 		{
 			const Rectangle<int> thumbnailBounds(x+5, y, width-10, height);
 			g.setColour(Colours::white);
 			directThumbnail.drawChannels(g, thumbnailBounds, 0.0, directThumbnail.getTotalLength(), 1.0f);
 		}
+		*/
     }
 
     {
@@ -133,12 +135,14 @@ void Sound::paint (Graphics& g)
         g.fillRoundedRectangle (x, y, width, height, 10.000f);
         g.setColour (strokeColour);
         g.drawRoundedRectangle (x, y, width, height, 10.000f, 2.000f);
+		/*
 		if (roomThumbnail.getNumChannels() != 0)
 		{
 			const Rectangle<int> thumbnailBounds(x+5, y, width-10, height);
 			g.setColour(Colours::white);
 			roomThumbnail.drawChannels(g, thumbnailBounds, 0.0, roomThumbnail.getTotalLength(), 1.0f);
 		}
+		*/
     }
 
     //[UserPaint] Add your own custom painting code here..
