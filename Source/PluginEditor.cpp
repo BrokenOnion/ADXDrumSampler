@@ -42,6 +42,7 @@ AdxAudioProcessorEditor::AdxAudioProcessorEditor (AdxAudioProcessor& ownerProc)
     addAndMakeVisible (addDrumButton = new TextButton ("Add Drum Button"));
     addDrumButton->setButtonText (TRANS("Add new drum..."));
     addDrumButton->addListener (this);
+    addDrumButton->setColour (TextButton::buttonColourId, Colour (0xffa45c94));
 
 
     //[UserPreSize]
@@ -100,7 +101,6 @@ void AdxAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_addDrumButton] -- add your button handler code here..
         //[/UserButtonCode_addDrumButton]
-
     }
 
     //[UserbuttonClicked_Post]
@@ -130,7 +130,7 @@ BEGIN_JUCER_METADATA
                  componentName="" parentClasses="public AudioProcessorEditor"
                  constructorParams="AdxAudioProcessor&amp; ownerProc" variableInitialisers="AudioProcessorEditor(ownerProc), processor(ownerProc)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="1024" initialHeight="768">
+                 fixedSize="1" initialWidth="1024" initialHeight="768">
   <BACKGROUND backgroundColour="ff323e44"/>
   <TABBEDCOMPONENT name="Drums List" id="6ead998e4b627b9d" memberName="drumsList"
                    virtualName="" explicitFocusOrder="0" pos="16 96 990 660" orientation="left"

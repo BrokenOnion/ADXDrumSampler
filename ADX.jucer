@@ -13,15 +13,23 @@
               jucerVersion="5.1.2">
   <MAINGROUP id="GTJxSj" name="ADX">
     <GROUP id="{FFD4FE6B-307A-6701-5B7E-8C786003EE15}" name="Source">
+      <FILE id="pPdydc" name="Sound.cpp" compile="1" resource="0" file="Source/Sound.cpp"/>
+      <FILE id="zFvLG2" name="Sound.h" compile="0" resource="0" file="Source/Sound.h"/>
+      <FILE id="tn9Uzh" name="VelocityLayer.cpp" compile="1" resource="0"
+            file="Source/VelocityLayer.cpp"/>
+      <FILE id="d86zjj" name="VelocityLayer.h" compile="0" resource="0" file="Source/VelocityLayer.h"/>
+      <FILE id="sx3LZc" name="Drum.cpp" compile="1" resource="0" file="Source/Drum.cpp"/>
+      <FILE id="OCNa7g" name="Drum.h" compile="0" resource="0" file="Source/Drum.h"/>
       <FILE id="O7k0mh" name="Channel.cpp" compile="1" resource="0" file="Source/Channel.cpp"/>
       <FILE id="rknjce" name="Channel.h" compile="0" resource="0" file="Source/Channel.h"/>
-      <FILE id="il4c9X" name="Sound.cpp" compile="1" resource="0" file="Source/Sound.cpp"/>
-      <FILE id="ElF0Pf" name="Sound.h" compile="0" resource="0" file="Source/Sound.h"/>
-      <FILE id="G5bjrP" name="VelocityLayer.cpp" compile="1" resource="0"
-            file="Source/VelocityLayer.cpp"/>
-      <FILE id="QGFVNw" name="VelocityLayer.h" compile="0" resource="0" file="Source/VelocityLayer.h"/>
-      <FILE id="lIIs43" name="Drum.cpp" compile="1" resource="0" file="Source/Drum.cpp"/>
-      <FILE id="st7JYA" name="Drum.h" compile="0" resource="0" file="Source/Drum.h"/>
+      <FILE id="il4c9X" name="SoundGUI.cpp" compile="1" resource="0" file="Source/SoundGUI.cpp"/>
+      <FILE id="ElF0Pf" name="SoundGUI.h" compile="0" resource="0" file="Source/SoundGUI.h"/>
+      <FILE id="G5bjrP" name="VelocityLayerGUI.cpp" compile="1" resource="0"
+            file="Source/VelocityLayerGUI.cpp"/>
+      <FILE id="QGFVNw" name="VelocityLayerGUI.h" compile="0" resource="0"
+            file="Source/VelocityLayerGUI.h"/>
+      <FILE id="lIIs43" name="DrumGUI.cpp" compile="1" resource="0" file="Source/DrumGUI.cpp"/>
+      <FILE id="st7JYA" name="DrumGUI.h" compile="0" resource="0" file="Source/DrumGUI.h"/>
       <FILE id="muVMy2" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="qeZ4se" name="PluginProcessor.h" compile="0" resource="0"
