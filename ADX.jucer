@@ -10,7 +10,7 @@
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="ADXAU"
               pluginRTASCategory="" aaxIdentifier="com.yourcompany.ADX" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
-              jucerVersion="5.1.2">
+              jucerVersion="5.2.0" companyCopyright="">
   <MAINGROUP id="GTJxSj" name="ADX">
     <GROUP id="{FFD4FE6B-307A-6701-5B7E-8C786003EE15}" name="Source">
       <FILE id="pPdydc" name="Sound.cpp" compile="1" resource="0" file="Source/Sound.cpp"/>
@@ -40,12 +40,14 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <VS2017 targetFolder="Builds/VisualStudio2017">
+    <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="ADX"/>
+                       isDebug="1" optimisation="1" targetName="ADX" debugInformationFormat="ProgramDatabase"
+                       enablePluginBinaryCopyStep="0"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="3" targetName="ADX"/>
+                       isDebug="0" optimisation="3" targetName="ADX" debugInformationFormat="ProgramDatabase"
+                       enablePluginBinaryCopyStep="0" linkTimeOptimisation="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
