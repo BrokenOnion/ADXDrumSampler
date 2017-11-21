@@ -9,3 +9,30 @@
 */
 
 #include "VelocityLayer.h"
+#include "Drum.h"
+
+VelocityLayer::VelocityLayer(Drum parentRef)
+	: parent(parentRef)
+{
+
+}
+
+VelocityLayer::~VelocityLayer()
+{
+
+}
+
+void VelocityLayer::createNewSound()
+{
+
+}
+
+Sound* VelocityLayer::getNextSound()
+{
+
+}
+
+float VelocityLayer::calculateCrossfade(int velocity)
+{
+
+}

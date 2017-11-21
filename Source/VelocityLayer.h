@@ -9,3 +9,21 @@
 */
 
 #pragma once
+#include "Sound.h"
+class Drum;
+
+class VelocityLayer
+{
+public:
+	VelocityLayer(Drum parentRef);
+	~VelocityLayer();
+
+	void createNewSound();
+	Sound* getNextSound();
+	float calculateCrossfade(int velocity);
+
+private:
+	Drum& parent;
+	Array<Sound*> sounds;
+	int upperBound, lowerBound, counter;
+};

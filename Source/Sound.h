@@ -9,3 +9,21 @@
 */
 
 #pragma once
+#include "../JuceLibraryCode/JuceHeader.h"
+
+class Sound
+{
+public:
+	Sound();
+	~Sound();
+
+	void setDirectSource();
+	void setRoomSource();
+	AudioTransportSource* getDirectSource();
+	AudioTransportSource* getRoomSource();
+
+private:
+	AudioFormatReader* directSound;
+	AudioFormatReader* roomSound;
+
+};
