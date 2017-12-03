@@ -10,6 +10,7 @@
 
 #pragma once
 #include "Sound.h"
+#include "Misc.h"
 class Drum;
 
 class VelocityLayer
@@ -28,4 +29,5 @@ private:
 	Drum& parent;
 	Array<Sound*> sounds;
 	int upperBound, lowerBound, counter;
+	CrossfadeFunction function;
 };

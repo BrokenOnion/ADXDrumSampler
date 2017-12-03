@@ -11,7 +11,7 @@
 #pragma once
 #include "../JuceLibraryCode/JuceHeader.h"
 
-class AdxTransportSource : public ChangeBroadcaster, public ChangeListener
+class AdxTransportSource : public AudioSource, public ChangeBroadcaster, public ChangeListener
 {
 public:
 	AdxTransportSource(AudioFormatReader* reader);
@@ -20,13 +20,18 @@ public:
 	void start();
 	void stop();
 	void setGain(float gain);
-	void prepareToPlay(int samplesPerBlock, double sampleRate);
-	void releaseResources();
-	void getNextAudioBlock(const AudioSourceChannelInfo& buffer);
+	void prepareToPlay(int samplesPerBlock, double sampleRate) override;
+	void releaseResources() override;
+	void getNextAudioBlock(const AudioSourceChannelInfo& buffer) override;
 
 	void changeListenerCallback(ChangeBroadcaster* source);
 
 private:
 	AudioTransportSource transport;
 	ScopedPointer<AudioFormatReaderSource> formatReader;
+};
+
+enum CrossfadeFunction
+{
+	linear, logOne
 };

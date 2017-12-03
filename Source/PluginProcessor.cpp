@@ -157,7 +157,7 @@ void AdxAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& mid
 		{
 			if (message.isNoteOn()) 
 			{
-				sendActionMessage(message.getNoteNumber() + "");
+				sendActionMessage(message.getNoteNumber() + ":" + message.getVelocity());
 			}
 		}
 	}

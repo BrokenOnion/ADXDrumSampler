@@ -21,7 +21,7 @@ public:
 
 	void addToQueue(Array<AdxTransportSource*> sources);
 	void clearQueue();
-	void setOutputs(int left, int right);
+	void setOutput(int left);
 	int getNextAudioBlock(AudioSourceChannelInfo &bufferToFill);
 	void prepareToPlay(int samplesPerBlock, double sampleRate);
 	void releaseResources();
@@ -29,7 +29,8 @@ public:
 private:
 	MixerAudioSource queue;
 	int outL;
-	int outR;
 	int samplesPerBlock;
 	double sampleRate;
+	float volume;
+	float pan;
 };

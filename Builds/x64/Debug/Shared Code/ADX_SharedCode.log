@@ -1,61 +1,47 @@
-﻿  Drum.cpp
-  PluginEditor.cpp
+﻿  PluginEditor.cpp
+  SoundGUI.cpp
+  VelocityLayerGUI.cpp
+  DrumGUI.cpp
   PluginProcessor.cpp
-  Sound.cpp
-  VelocityLayer.cpp
+  Misc.cpp
 ..\..\Source\PluginProcessor.cpp(84): warning C4100: 'index': unreferenced formal parameter
 ..\..\Source\PluginProcessor.cpp(88): warning C4100: 'index': unreferenced formal parameter
 ..\..\Source\PluginProcessor.cpp(93): warning C4100: 'newName': unreferenced formal parameter
 ..\..\Source\PluginProcessor.cpp(93): warning C4100: 'index': unreferenced formal parameter
 ..\..\Source\PluginProcessor.cpp(98): warning C4458: declaration of 'sampleRate' hides class member
-  j:\home\documents\github\adxdrumsampler\source\PluginProcessor.h(65): note: see declaration of 'AdxAudioProcessor::sampleRate' (compiling source file ..\..\Source\PluginProcessor.cpp)
+  j:\home\documents\github\adxdrumsampler\source\PluginProcessor.h(67): note: see declaration of 'AdxAudioProcessor::sampleRate' (compiling source file ..\..\Source\PluginProcessor.cpp)
 ..\..\Source\PluginProcessor.cpp(98): warning C4458: declaration of 'samplesPerBlock' hides class member
-  j:\home\documents\github\adxdrumsampler\source\PluginProcessor.h(64): note: see declaration of 'AdxAudioProcessor::samplesPerBlock' (compiling source file ..\..\Source\PluginProcessor.cpp)
-..\..\Source\PluginProcessor.cpp(165): warning C4239: nonstandard extension used: 'argument': conversion from 'juce::AudioSourceChannelInfo' to 'juce::AudioSourceChannelInfo &'
-  ..\..\Source\PluginProcessor.cpp(165): note: A non-const reference may only be bound to an lvalue
-..\..\Source\PluginProcessor.cpp(166): warning C4456: declaration of 'i' hides previous local declaration
-  ..\..\Source\PluginProcessor.cpp(162): note: see declaration of 'i'
-..\..\Source\PluginProcessor.cpp(144): warning C4100: 'midiMessages': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(196): warning C4100: 'destData': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(203): warning C4100: 'sizeInBytes': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(203): warning C4100: 'data': unreferenced formal parameter
-..\..\Source\Sound.cpp(118): error C2065: 'directThumbnail': undeclared identifier
-..\..\Source\Sound.cpp(118): error C2228: left of '.getNumChannels' must have class/struct/union
-  ..\..\Source\Sound.cpp(118): note: type is 'unknown-type'
-..\..\Source\Sound.cpp(120): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-..\..\Source\Sound.cpp(122): error C2065: 'directThumbnail': undeclared identifier
-..\..\Source\Sound.cpp(122): error C2228: left of '.drawChannels' must have class/struct/union
-  ..\..\Source\Sound.cpp(122): note: type is 'unknown-type'
-..\..\Source\Sound.cpp(122): error C2228: left of '.getTotalLength' must have class/struct/union
-  ..\..\Source\Sound.cpp(122): note: type is 'unknown-type'
-..\..\Source\Sound.cpp(136): error C2065: 'roomThumbnail': undeclared identifier
-..\..\Source\Sound.cpp(136): error C2228: left of '.getNumChannels' must have class/struct/union
-  ..\..\Source\Sound.cpp(136): note: type is 'unknown-type'
-..\..\Source\Sound.cpp(138): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-..\..\Source\Sound.cpp(140): error C2065: 'roomThumbnail': undeclared identifier
-..\..\Source\Sound.cpp(140): error C2228: left of '.drawChannels' must have class/struct/union
-  ..\..\Source\Sound.cpp(140): note: type is 'unknown-type'
-..\..\Source\Sound.cpp(140): error C2228: left of '.getTotalLength' must have class/struct/union
-  ..\..\Source\Sound.cpp(140): note: type is 'unknown-type'
-..\..\Source\Drum.cpp(252): error C2065: 'editor': undeclared identifier
-..\..\Source\Drum.cpp(252): error C2228: left of '.getDrumsList' must have class/struct/union
-  ..\..\Source\Drum.cpp(252): note: type is 'unknown-type'
-..\..\Source\Drum.cpp(252): error C2228: left of '.getCurrentTabIndex' must have class/struct/union
-..\..\Source\Drum.cpp(253): error C2065: 'editor': undeclared identifier
-..\..\Source\Drum.cpp(253): error C2228: left of '.getDrumsList' must have class/struct/union
-  ..\..\Source\Drum.cpp(253): note: type is 'unknown-type'
-..\..\Source\Drum.cpp(253): error C2228: left of '.getTabContentComponent' must have class/struct/union
-..\..\Source\Drum.cpp(259): error C2664: 'VelocityLayer::VelocityLayer(const VelocityLayer &)': cannot convert argument 1 from 'Drum' to 'const VelocityLayer &'
-  ..\..\Source\Drum.cpp(259): note: Reason: cannot convert from 'Drum' to 'const VelocityLayer'
-  ..\..\Source\Drum.cpp(259): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-..\..\Source\Drum.cpp(259): error C2664: 'void juce::TabbedComponent::addTab(const juce::String &,juce::Colour,juce::Component *,bool,int)': cannot convert argument 3 from 'bool' to 'juce::Component *'
-  ..\..\Source\Drum.cpp(259): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
-..\..\Source\Drum.cpp(266): error C3861: 'playDrum': identifier not found
-..\..\Source\Drum.cpp(274): error C2065: 'editor': undeclared identifier
-..\..\Source\Drum.cpp(274): error C2228: left of '.getDrumsList' must have class/struct/union
-  ..\..\Source\Drum.cpp(274): note: type is 'unknown-type'
-..\..\Source\Drum.cpp(274): error C2228: left of '.setTabName' must have class/struct/union
-..\..\Source\Drum.cpp(283): error C2065: 'editor': undeclared identifier
-..\..\Source\Drum.cpp(283): error C2228: left of '.getDrumsList' must have class/struct/union
-  ..\..\Source\Drum.cpp(283): note: type is 'unknown-type'
-..\..\Source\Drum.cpp(283): error C2228: left of '.removeTab' must have class/struct/union
+  j:\home\documents\github\adxdrumsampler\source\PluginProcessor.h(66): note: see declaration of 'AdxAudioProcessor::samplesPerBlock' (compiling source file ..\..\Source\PluginProcessor.cpp)
+..\..\Source\PluginProcessor.cpp(191): warning C4100: 'destData': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(198): warning C4100: 'sizeInBytes': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(198): warning C4100: 'data': unreferenced formal parameter
+  Sound.cpp
+  VelocityLayer.cpp
+  Drum.cpp
+  Channel.cpp
+  include_juce_audio_basics.cpp
+  include_juce_audio_devices.cpp
+..\..\Source\VelocityLayer.cpp(47): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+..\..\Source\VelocityLayer.cpp(51): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+..\..\Source\Drum.cpp(60): warning C4458: declaration of 'note' hides class member
+  j:\home\documents\github\adxdrumsampler\source\Drum.h(32): note: see declaration of 'Drum::note' (compiling source file ..\..\Source\Drum.cpp)
+  include_juce_audio_formats.cpp
+..\..\Source\Channel.cpp(49): warning C4458: declaration of 'samplesPerBlock' hides class member
+  j:\home\documents\github\adxdrumsampler\source\Channel.h(32): note: see declaration of 'Channel::samplesPerBlock' (compiling source file ..\..\Source\Channel.cpp)
+..\..\Source\Channel.cpp(49): warning C4458: declaration of 'sampleRate' hides class member
+  j:\home\documents\github\adxdrumsampler\source\Channel.h(33): note: see declaration of 'Channel::sampleRate' (compiling source file ..\..\Source\Channel.cpp)
+j:\home\documents\github\adxdrumsampler\source\velocitylayer.cpp(58): warning C4715: 'VelocityLayer::calculateCrossfade': not all control paths return a value
+j:\home\documents\github\adxdrumsampler\source\velocitylayer.cpp(38): warning C4702: unreachable code
+  include_juce_audio_plugin_client_utils.cpp
+  include_juce_audio_processors.cpp
+  include_juce_audio_utils.cpp
+  include_juce_core.cpp
+  include_juce_cryptography.cpp
+  include_juce_data_structures.cpp
+  include_juce_events.cpp
+  include_juce_graphics.cpp
+  include_juce_gui_basics.cpp
+  include_juce_gui_extra.cpp
+  include_juce_opengl.cpp
+  include_juce_video.cpp
+  ADX_SharedCode.vcxproj -> J:\Home\Documents\GitHub\ADXDrumSampler\Builds\VisualStudio2017\x64\Debug\Shared Code\ADX.lib

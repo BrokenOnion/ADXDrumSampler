@@ -15,6 +15,7 @@ VelocityLayer::VelocityLayer(Drum parentRef)
 	: parent(parentRef)
 {
 	counter = 0;
+	function = linear;
 }
 
 void VelocityLayer::createNewSound()
@@ -39,7 +40,21 @@ Sound* VelocityLayer::getNextSound()
 
 float VelocityLayer::calculateCrossfade(int velocity)
 {
-
+	if (function == linear)
+	{
+		if (velocity > upperBound - 10)
+		{
+			return -((velocity - (upperBound + 10)) / 20);
+		}
+		else if (velocity < lowerBound + 10)
+		{
+			return ((velocity - (lowerBound - 10)) / 20);
+		}
+		else
+		{
+			return 1.0f;
+		}
+	}
 }
 
 void VelocityLayer::setUpperBound(int velocity) 

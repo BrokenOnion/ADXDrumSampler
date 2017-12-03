@@ -1,1 +1,3 @@
-﻿  ADX_StandalonePlugin.vcxproj -> C:\Users\jdown\Documents\GitHub\ADXDrumSampler\Builds\VisualStudio2017\x64\Debug\Standalone Plugin\ADX.exe
+﻿  include_juce_audio_plugin_client_Standalone.cpp
+  ADX_StandalonePlugin.vcxproj -> J:\Home\Documents\GitHub\ADXDrumSampler\Builds\VisualStudio2017\x64\Debug\Standalone Plugin\ADX.exe
+  ADX_StandalonePlugin.vcxproj -> x64\Debug\Standalone Plugin\\ADX.pdb (Full PDB)

@@ -14,7 +14,7 @@
 #include "Channel.h"
 class AdxAudioProcessor;
 
-class Drum 
+class Drum : public ActionListener
 {
 public:
 	Drum(AdxAudioProcessor& processorRef);
@@ -23,6 +23,7 @@ public:
 	void createVelocityLayer();
 	void setChannel(Channel* newChannel);
 	void playDrum(int velocity);
+	void actionListenerCallback(const String& message);
 
 private:
 	Array<VelocityLayer*> velocityLayers;
@@ -30,6 +31,5 @@ private:
 	Channel* channel;
 	int note;
 	String name;
-	float volume;
 
 };

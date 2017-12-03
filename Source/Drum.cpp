@@ -51,3 +51,18 @@ void Drum::playDrum(int velocity)
 	channel->addToQueue(directMix);
 	processor.getRoomChannel()->addToQueue(roomMix);
 }
+
+void Drum::actionListenerCallback(const String& message)
+{
+	int colonPos = message.indexOf(":");
+	if (colonPos)
+	{
+		int note = atoi(message.substring(0, colonPos).toStdString().c_str());
+		if (note != this->note)
+		{
+			return;
+		}
+		int velocity = atoi(message.substring(colonPos + 1).toStdString().c_str());
+		playDrum(velocity);
+	}
+}
