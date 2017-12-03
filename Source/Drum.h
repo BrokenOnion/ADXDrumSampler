@@ -18,10 +18,11 @@ class Drum
 {
 public:
 	Drum(AdxAudioProcessor& processorRef);
-	~Drum();
+	//~Drum();
 
 	void createVelocityLayer();
 	void setChannel(Channel* newChannel);
+	void playDrum(int velocity);
 
 private:
 	Array<VelocityLayer*> velocityLayers;

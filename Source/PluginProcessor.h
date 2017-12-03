@@ -16,7 +16,7 @@
 //==============================================================================
 /**
 */
-class AdxAudioProcessor  : public AudioProcessor
+class AdxAudioProcessor  : public AudioProcessor, public ActionBroadcaster
 {
 public:
     //==============================================================================
@@ -58,9 +58,11 @@ public:
 
 	//==============================================================================
 	Channel* createChannel();
+	Channel* getRoomChannel() const;
 
 private:
 	Array<Channel*> channels;
+	Channel* roomChannel;
 	int samplesPerBlock;
 	double sampleRate;
 

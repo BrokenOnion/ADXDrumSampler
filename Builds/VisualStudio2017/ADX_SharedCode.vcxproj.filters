@@ -2,6 +2,12 @@
 
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="ADX\Source\GUI">
+      <UniqueIdentifier>{5A83F30A-A901-39D7-BEA8-97E709681ED0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADX\Source\Model">
+      <UniqueIdentifier>{64B73C6A-ED5A-6894-FEFA-055044E37635}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ADX\Source">
       <UniqueIdentifier>{F6BEF44A-21AE-1620-C687-A2B2AE49F4EE}</UniqueIdentifier>
     </Filter>
@@ -391,32 +397,35 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Sound.cpp">
-      <Filter>ADX\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\VelocityLayer.cpp">
-      <Filter>ADX\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Drum.cpp">
-      <Filter>ADX\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Channel.cpp">
-      <Filter>ADX\Source</Filter>
+    <ClCompile Include="..\..\Source\PluginEditor.cpp">
+      <Filter>ADX\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SoundGUI.cpp">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\VelocityLayerGUI.cpp">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DrumGUI.cpp">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp">
-      <Filter>ADX\Source</Filter>
+    <ClCompile Include="..\..\Source\Misc.cpp">
+      <Filter>ADX\Source\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Sound.cpp">
+      <Filter>ADX\Source\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\VelocityLayer.cpp">
+      <Filter>ADX\Source\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drum.cpp">
+      <Filter>ADX\Source\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Channel.cpp">
+      <Filter>ADX\Source\Model</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\jdown\Desktop\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -2265,32 +2274,35 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\Sound.h">
-      <Filter>ADX\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\VelocityLayer.h">
-      <Filter>ADX\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Drum.h">
-      <Filter>ADX\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Channel.h">
-      <Filter>ADX\Source</Filter>
+    <ClInclude Include="..\..\Source\PluginEditor.h">
+      <Filter>ADX\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SoundGUI.h">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\VelocityLayerGUI.h">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DrumGUI.h">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
-      <Filter>ADX\Source</Filter>
+      <Filter>ADX\Source\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
-      <Filter>ADX\Source</Filter>
+    <ClInclude Include="..\..\Source\Misc.h">
+      <Filter>ADX\Source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Sound.h">
+      <Filter>ADX\Source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\VelocityLayer.h">
+      <Filter>ADX\Source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drum.h">
+      <Filter>ADX\Source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Channel.h">
+      <Filter>ADX\Source\Model</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\jdown\Desktop\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>Juce Modules\juce_audio_basics\audio_play_head</Filter>

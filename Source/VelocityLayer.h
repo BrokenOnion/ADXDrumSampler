@@ -16,11 +16,13 @@ class VelocityLayer
 {
 public:
 	VelocityLayer(Drum parentRef);
-	~VelocityLayer();
+	//~VelocityLayer();
 
 	void createNewSound();
 	Sound* getNextSound();
 	float calculateCrossfade(int velocity);
+	void setUpperBound(int velocity);
+	void setLowerBound(int velocity);
 
 private:
 	Drum& parent;

@@ -10,13 +10,28 @@
 
 #include "Sound.h"
 
-Sound::Sound()
+Sound::Sound(VelocityLayer& parentRef) 
+	: parent(parentRef)
 {
-
+	formatManager.registerBasicFormats();
 }
 
-Sound::~Sound()
+void Sound::setDirectSource(File soundFile)
 {
-
+	directSound = formatManager.createReaderFor(soundFile);
 }
 
+void Sound::setRoomSource(File soundFile)
+{
+	roomSound = formatManager.createReaderFor(soundFile);
+}
+
+AdxTransportSource* Sound::getDirectSource()
+{
+	return new AdxTransportSource(directSound);
+}
+
+AdxTransportSource* Sound::getRoomSource()
+{
+	return new AdxTransportSource(roomSound);
+}

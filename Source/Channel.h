@@ -9,6 +9,7 @@
 */
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Misc.h"
 
 #pragma once
 
@@ -18,7 +19,7 @@ public:
 	Channel();
 	~Channel();
 
-	void addToQueue(Array<AudioTransportSource*> sources);
+	void addToQueue(Array<AdxTransportSource*> sources);
 	void clearQueue();
 	void setOutputs(int left, int right);
 	int getNextAudioBlock(AudioSourceChannelInfo &bufferToFill);

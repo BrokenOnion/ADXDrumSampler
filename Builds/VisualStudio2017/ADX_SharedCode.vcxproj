@@ -147,15 +147,16 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Sound.cpp"/>
-    <ClCompile Include="..\..\Source\VelocityLayer.cpp"/>
-    <ClCompile Include="..\..\Source\Drum.cpp"/>
-    <ClCompile Include="..\..\Source\Channel.cpp"/>
+    <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\SoundGUI.cpp"/>
     <ClCompile Include="..\..\Source\VelocityLayerGUI.cpp"/>
     <ClCompile Include="..\..\Source\DrumGUI.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\Misc.cpp"/>
+    <ClCompile Include="..\..\Source\Sound.cpp"/>
+    <ClCompile Include="..\..\Source\VelocityLayer.cpp"/>
+    <ClCompile Include="..\..\Source\Drum.cpp"/>
+    <ClCompile Include="..\..\Source\Channel.cpp"/>
     <ClCompile Include="C:\Users\jdown\Desktop\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1850,15 +1851,16 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\Sound.h"/>
-    <ClInclude Include="..\..\Source\VelocityLayer.h"/>
-    <ClInclude Include="..\..\Source\Drum.h"/>
-    <ClInclude Include="..\..\Source\Channel.h"/>
+    <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\Source\SoundGUI.h"/>
     <ClInclude Include="..\..\Source\VelocityLayerGUI.h"/>
     <ClInclude Include="..\..\Source\DrumGUI.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
-    <ClInclude Include="..\..\Source\PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\Misc.h"/>
+    <ClInclude Include="..\..\Source\Sound.h"/>
+    <ClInclude Include="..\..\Source\VelocityLayer.h"/>
+    <ClInclude Include="..\..\Source\Drum.h"/>
+    <ClInclude Include="..\..\Source\Channel.h"/>
     <ClInclude Include="C:\Users\jdown\Desktop\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="C:\Users\jdown\Desktop\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="C:\Users\jdown\Desktop\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

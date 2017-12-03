@@ -10,20 +10,24 @@
 
 #pragma once
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Misc.h"
+class VelocityLayer;
 
 class Sound
 {
 public:
-	Sound();
-	~Sound();
+	Sound(VelocityLayer& parentRef);
+	//~Sound();
 
-	void setDirectSource();
-	void setRoomSource();
-	AudioTransportSource* getDirectSource();
-	AudioTransportSource* getRoomSource();
+	void setDirectSource(File soundFile);
+	void setRoomSource(File soundFile);
+	AdxTransportSource* getDirectSource();
+	AdxTransportSource* getRoomSource();
 
 private:
+	VelocityLayer& parent;
 	AudioFormatReader* directSound;
 	AudioFormatReader* roomSound;
+	AudioFormatManager formatManager;
 
 };

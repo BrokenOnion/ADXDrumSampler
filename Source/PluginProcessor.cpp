@@ -147,6 +147,21 @@ void AdxAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& mid
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
 
+	if (!midiMessages.isEmpty())
+	{
+		MidiBuffer::Iterator iterator(midiMessages);
+		MidiMessage message;
+		int sampleNum;
+
+		while (iterator.getNextEvent(message, sampleNum)) 
+		{
+			if (message.isNoteOn()) 
+			{
+				sendActionMessage(message.getNoteNumber() + "");
+			}
+		}
+	}
+
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't
     // guaranteed to be empty - they may contain garbage).
@@ -158,27 +173,7 @@ void AdxAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& mid
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
-	
-	for (int i = 0; i < channels.size(); i++)
-	{
-		AudioSampleBuffer tempBuffer(buffer);
-		int leftOut = channels.getUnchecked(i)->getNextAudioBlock(AudioSourceChannelInfo(tempBuffer));
-		for (int i = 0; i < buffer.getNumSamples(); i++)
-		{
-			buffer.addSample(leftOut, i, tempBuffer.getSample(leftOut, i));
-			buffer.addSample(leftOut + 1, i, tempBuffer.getSample(leftOut + 1, i));
-		}
-	}
-	
-	/*
-	AudioSampleBuffer tempBuffer(buffer);
-	int leftOut = roomChannel->getNextAudioBlock(AudioSourceChannelInfo(tempBuffer));
-	for (int i = 0; i < buffer.getNumSamples(); i++)
-	{
-		buffer.addSample(leftOut, i, tempBuffer.getSample(leftOut, i));
-		buffer.addSample(leftOut + 1, i, tempBuffer.getSample(leftOut + 1, i));
-	}
-	*/
+
 }
 
 //==============================================================================
@@ -220,4 +215,9 @@ Channel* AdxAudioProcessor::createChannel()
 	newChannel->prepareToPlay(samplesPerBlock, sampleRate);
 	channels.add(newChannel);
 	return newChannel;
+}
+
+Channel* AdxAudioProcessor::getRoomChannel() const
+{
+	return roomChannel;
 }

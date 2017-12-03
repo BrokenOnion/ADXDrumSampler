@@ -9,6 +9,7 @@
 */
 
 #include "Drum.h"
+#include "PluginProcessor.h"
 
 Drum::Drum(AdxAudioProcessor& processorRef) 
 	: processor(processorRef)
@@ -16,17 +17,37 @@ Drum::Drum(AdxAudioProcessor& processorRef)
 
 }
 
-Drum::~Drum()
-{
-
-}
-
 void Drum::createVelocityLayer()
 {
-	velocityLayers.add(new VelocityLayer());
+	velocityLayers.add(new VelocityLayer(*this));
 }
 
 void Drum::setChannel(Channel* newChannel)
 {
 	channel = newChannel;
+}
+
+void Drum::playDrum(int velocity)
+{
+	Array<AdxTransportSource*> directMix;
+	Array<AdxTransportSource*> roomMix;
+
+	for (int i = 0; i < velocityLayers.size(); ++i)
+	{
+		Sound* nextSound = velocityLayers.getUnchecked(i)->getNextSound();
+		float gain = velocityLayers.getUnchecked(i)->calculateCrossfade(velocity);
+		if (gain == 0.0f)
+		{
+			continue;
+		}
+		AdxTransportSource* direct = nextSound->getDirectSource();
+		AdxTransportSource* room = nextSound->getRoomSource();
+		direct->setGain(gain);
+		room->setGain(gain);
+		directMix.add(direct);
+		roomMix.add(room);
+	}
+
+	channel->addToQueue(directMix);
+	processor.getRoomChannel()->addToQueue(roomMix);
 }

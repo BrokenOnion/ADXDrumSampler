@@ -22,14 +22,11 @@ Channel::~Channel()
 	clearQueue();
 }
 
-void Channel::addToQueue(Array<AudioTransportSource*> sources)
+void Channel::addToQueue(Array<AdxTransportSource*> sources)
 {
 	for (int i = 0; i < sources.size(); i++)
 	{
-		queue.addInputSource(sources.getUnchecked(i), false);
-		sources.getUnchecked(i)->prepareToPlay(samplesPerBlock, sampleRate);
-		sources.getUnchecked(i)->start();
-		sources.getUnchecked(i)->addChangeListener(this);
+		
 	}
 }
 
