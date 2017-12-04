@@ -35,17 +35,20 @@ void Drum::playDrum(int velocity)
 	for (int i = 0; i < velocityLayers.size(); ++i)
 	{
 		Sound* nextSound = velocityLayers.getUnchecked(i)->getNextSound();
-		float gain = velocityLayers.getUnchecked(i)->calculateCrossfade(velocity);
-		if (gain == 0.0f)
+		if (nextSound)
 		{
-			continue;
+			float gain = velocityLayers.getUnchecked(i)->calculateCrossfade(velocity);
+			if (gain == 0.0f)
+			{
+				continue;
+			}
+			AdxTransportSource* direct = nextSound->getDirectSource();
+			AdxTransportSource* room = nextSound->getRoomSource();
+			direct->setGain(gain);
+			room->setGain(gain);
+			directMix.add(direct);
+			roomMix.add(room);
 		}
-		AdxTransportSource* direct = nextSound->getDirectSource();
-		AdxTransportSource* room = nextSound->getRoomSource();
-		direct->setGain(gain);
-		room->setGain(gain);
-		directMix.add(direct);
-		roomMix.add(room);
 	}
 
 	channel->addToQueue(directMix);

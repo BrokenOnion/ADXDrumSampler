@@ -15,7 +15,7 @@ VelocityLayer::VelocityLayer(Drum parentRef)
 	: parent(parentRef)
 {
 	counter = 0;
-	function = linear;
+	function = linearOne;
 }
 
 void VelocityLayer::createNewSound()

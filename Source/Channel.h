@@ -13,7 +13,7 @@
 
 #pragma once
 
-class Channel : ChangeListener
+class Channel : public ChangeListener
 {
 public:
 	Channel();

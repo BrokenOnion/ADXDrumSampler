@@ -28,6 +28,7 @@ void Channel::addToQueue(Array<AdxTransportSource*> sources)
 		AdxTransportSource* currentSource = sources.getUnchecked(i);
 		currentSource->prepareToPlay(samplesPerBlock, sampleRate);
 		currentSource->start();
+		currentSource->addChangeListener(this);
 		queue.addInputSource(currentSource, true);
 	}
 }
@@ -59,13 +60,12 @@ void Channel::releaseResources()
 
 void Channel::changeListenerCallback(ChangeBroadcaster* source)
 {
-	AudioTransportSource* audioSource = dynamic_cast<AudioTransportSource*>(source);
+	AdxTransportSource* audioSource = dynamic_cast<AdxTransportSource*>(source);
 	if (audioSource != nullptr)
 	{
 		if (audioSource->hasStreamFinished())
 		{
 			queue.removeInputSource(audioSource);
-			audioSource->setPosition(0.0);
 			OutputDebugString("Removed");
 		}
 	}
