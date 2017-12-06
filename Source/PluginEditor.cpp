@@ -20,6 +20,7 @@
 //[Headers] You can add your own extra header files here...
 #include "Drum.h"
 #include "Windows.h"
+#include "PluginProcessor.h"
 //[/Headers]
 
 #include "PluginEditor.h"
@@ -44,6 +45,21 @@ AdxAudioProcessorEditor::AdxAudioProcessorEditor (AdxAudioProcessor& ownerProc)
     addDrumButton->addListener (this);
     addDrumButton->setColour (TextButton::buttonColourId, Colour (0xffa45c94));
 
+    addAndMakeVisible (roomOutputLabel = new Label ("RoomOutputLabel",
+                                                    TRANS("Room Channel Output: ")));
+    roomOutputLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    roomOutputLabel->setJustificationType (Justification::centredLeft);
+    roomOutputLabel->setEditable (false, false, false);
+    roomOutputLabel->setColour (TextEditor::textColourId, Colours::black);
+    roomOutputLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (roomOutputCombo = new ComboBox ("RoomOutputCombo"));
+    roomOutputCombo->setEditableText (false);
+    roomOutputCombo->setJustificationType (Justification::centredLeft);
+    roomOutputCombo->setTextWhenNothingSelected (String());
+    roomOutputCombo->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    roomOutputCombo->addListener (this);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -63,6 +79,8 @@ AdxAudioProcessorEditor::~AdxAudioProcessorEditor()
 
     drumsList = nullptr;
     addDrumButton = nullptr;
+    roomOutputLabel = nullptr;
+    roomOutputCombo = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -88,6 +106,8 @@ void AdxAudioProcessorEditor::resized()
 
     drumsList->setBounds (16, 96, 990, 660);
     addDrumButton->setBounds (24, 16, 256, 56);
+    roomOutputLabel->setBounds (848, 16, 150, 24);
+    roomOutputCombo->setBounds (848, 48, 150, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -100,11 +120,27 @@ void AdxAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == addDrumButton)
     {
         //[UserButtonCode_addDrumButton] -- add your button handler code here..
+		processor.createDrum();
         //[/UserButtonCode_addDrumButton]
     }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
+}
+
+void AdxAudioProcessorEditor::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
+{
+    //[UsercomboBoxChanged_Pre]
+    //[/UsercomboBoxChanged_Pre]
+
+    if (comboBoxThatHasChanged == roomOutputCombo)
+    {
+        //[UserComboBoxCode_roomOutputCombo] -- add your combo box handling code here..
+        //[/UserComboBoxCode_roomOutputCombo]
+    }
+
+    //[UsercomboBoxChanged_Post]
+    //[/UsercomboBoxChanged_Post]
 }
 
 
@@ -113,6 +149,11 @@ void AdxAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
 TabbedComponent& AdxAudioProcessorEditor::getDrumsList()
 {
 	return *drumsList;
+}
+
+void AdxAudioProcessorEditor::addTab(Component* componentToAdd)
+{
+	drumsList->addTab(" ", Colour(Colours::grey), componentToAdd, true);
 }
 //[/MiscUserCode]
 
@@ -139,6 +180,14 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="24 16 256 56" bgColOff="ffa45c94"
               buttonText="Add new drum..." connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
+  <LABEL name="RoomOutputLabel" id="c873188a74159e90" memberName="roomOutputLabel"
+         virtualName="" explicitFocusOrder="0" pos="848 16 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Room Channel Output: " editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
+  <COMBOBOX name="RoomOutputCombo" id="90da6861d5bb26b4" memberName="roomOutputCombo"
+            virtualName="" explicitFocusOrder="0" pos="848 48 150 24" editable="0"
+            layout="33" items="" textWhenNonSelected="" textWhenNoItems="(no choices)"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

@@ -1,1 +1,24 @@
-﻿  ADX_SharedCode.vcxproj -> C:\Users\jdown\Documents\GitHub\ADXDrumSampler\Builds\VisualStudio2017\x64\Debug\Shared Code\ADX.lib
+﻿  Drum.cpp
+  DrumGUI.cpp
+  PluginEditor.cpp
+  PluginProcessor.cpp
+..\..\Source\PluginProcessor.cpp(85): warning C4100: 'index': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(89): warning C4100: 'index': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(94): warning C4100: 'newName': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(94): warning C4100: 'index': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(99): warning C4458: declaration of 'sampleRate' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\PluginProcessor.h(73): note: see declaration of 'AdxAudioProcessor::sampleRate' (compiling source file ..\..\Source\PluginProcessor.cpp)
+..\..\Source\PluginProcessor.cpp(99): warning C4458: declaration of 'samplesPerBlock' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\PluginProcessor.h(72): note: see declaration of 'AdxAudioProcessor::samplesPerBlock' (compiling source file ..\..\Source\PluginProcessor.cpp)
+..\..\Source\PluginProcessor.cpp(194): warning C4100: 'destData': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(201): warning C4100: 'sizeInBytes': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(201): warning C4100: 'data': unreferenced formal parameter
+..\..\Source\Drum.cpp(64): warning C4458: declaration of 'note' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\Drum.h(34): note: see declaration of 'Drum::note' (compiling source file ..\..\Source\Drum.cpp)
+  VelocityLayer.cpp
+  VelocityLayerGUI.cpp
+..\..\Source\VelocityLayer.cpp(49): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+..\..\Source\VelocityLayer.cpp(53): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\jdown\documents\github\adxdrumsampler\source\velocitylayer.cpp(60): warning C4715: 'VelocityLayer::calculateCrossfade': not all control paths return a value
+c:\users\jdown\documents\github\adxdrumsampler\source\velocitylayer.cpp(40): warning C4702: unreachable code
+  ADX_SharedCode.vcxproj -> C:\Users\jdown\Documents\GitHub\ADXDrumSampler\Builds\VisualStudio2017\x64\Debug\Shared Code\ADX.lib

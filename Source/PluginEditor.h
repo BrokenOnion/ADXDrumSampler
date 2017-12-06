@@ -21,7 +21,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "PluginProcessor.h"
+class AdxAudioProcessor;
 //[/Headers]
 
 
@@ -35,7 +35,8 @@
                                                                     //[/Comments]
 */
 class AdxAudioProcessorEditor  : public AudioProcessorEditor,
-                                 public Button::Listener
+                                 public Button::Listener,
+                                 public ComboBox::Listener
 {
 public:
     //==============================================================================
@@ -45,11 +46,13 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
 	TabbedComponent& getDrumsList();
+	void addTab(Component* componentToAdd);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
     void resized() override;
     void buttonClicked (Button* buttonThatWasClicked) override;
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
 
 
 
@@ -61,6 +64,8 @@ private:
     //==============================================================================
     ScopedPointer<TabbedComponent> drumsList;
     ScopedPointer<TextButton> addDrumButton;
+    ScopedPointer<Label> roomOutputLabel;
+    ScopedPointer<ComboBox> roomOutputCombo;
 
 
     //==============================================================================

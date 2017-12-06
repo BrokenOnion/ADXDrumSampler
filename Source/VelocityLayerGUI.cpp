@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.1.2
+  Created with Projucer version: 5.2.0
 
   ------------------------------------------------------------------------------
 
@@ -18,6 +18,7 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#include "VelocityLayer.h"
 //[/Headers]
 
 #include "VelocityLayerGUI.h"
@@ -27,7 +28,8 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-VelocityLayerGUI::VelocityLayerGUI ()
+VelocityLayerGUI::VelocityLayerGUI (VelocityLayer& parentRef)
+    : parent(parentRef)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -157,12 +159,12 @@ void VelocityLayerGUI::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == addSoundButton)
     {
         //[UserButtonCode_addSoundButton] -- add your button handler code here..
+		parent.createNewSound();
         //[/UserButtonCode_addSoundButton]
     }
     else if (buttonThatWasClicked == deleteLayerButton)
     {
         //[UserButtonCode_deleteLayerButton] -- add your button handler code here..
-
         //[/UserButtonCode_deleteLayerButton]
     }
 
@@ -208,6 +210,10 @@ void VelocityLayerGUI::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void VelocityLayerGUI::addTab(Component* componentToAdd)
+{
+	soundsList->addTab(" ", Colour(Colours::grey), componentToAdd, true);
+}
 //[/MiscUserCode]
 
 
@@ -221,9 +227,10 @@ void VelocityLayerGUI::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="VelocityLayerGUI" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="600" initialHeight="592">
+                 parentClasses="public Component" constructorParams="VelocityLayer&amp; parentRef"
+                 variableInitialisers="parent(parentRef)" snapPixels="8" snapActive="1"
+                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="600"
+                 initialHeight="592">
   <BACKGROUND backgroundColour="ff323e44"/>
   <TABBEDCOMPONENT name="SoundsList" id="30f73db64cf179b3" memberName="soundsList"
                    virtualName="" explicitFocusOrder="0" pos="16 176 568 400" orientation="top"

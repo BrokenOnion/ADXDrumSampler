@@ -11,6 +11,7 @@
 #pragma once
 
 #include "VelocityLayer.h"
+#include "DrumGUI.h"
 #include "Channel.h"
 class AdxAudioProcessor;
 
@@ -24,6 +25,7 @@ public:
 	void setChannel(Channel* newChannel);
 	void playDrum(int velocity);
 	void actionListenerCallback(const String& message);
+	Component* getGui();
 
 private:
 	Array<VelocityLayer*> velocityLayers;
@@ -32,4 +34,5 @@ private:
 	int note;
 	String name;
 
+	DrumGUI gui;
 };

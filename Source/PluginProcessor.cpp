@@ -10,6 +10,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "Drum.h"
 
 
 //==============================================================================
@@ -184,7 +185,9 @@ bool AdxAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* AdxAudioProcessor::createEditor()
 {
-    return new AdxAudioProcessorEditor (*this);
+	AdxAudioProcessorEditor* newEditor = new AdxAudioProcessorEditor(*this);
+	editor = newEditor;
+	return newEditor;
 }
 
 //==============================================================================
@@ -220,4 +223,11 @@ Channel* AdxAudioProcessor::createChannel()
 Channel* AdxAudioProcessor::getRoomChannel() const
 {
 	return roomChannel;
+}
+
+void AdxAudioProcessor::createDrum()
+{
+	Drum* newDrum = new Drum(*this);
+	drums.add(newDrum);
+	editor->addTab(newDrum->getGui());
 }

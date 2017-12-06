@@ -12,6 +12,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Channel.h"
+#include "PluginEditor.h"
+#include "Drum.h"
 
 //==============================================================================
 /**
@@ -60,8 +62,12 @@ public:
 	Channel* createChannel();
 	Channel* getRoomChannel() const;
 
+	void createDrum();
+
 private:
+	AdxAudioProcessorEditor* editor;
 	Array<Channel*> channels;
+	Array<Drum*> drums;
 	Channel* roomChannel;
 	int samplesPerBlock;
 	double sampleRate;

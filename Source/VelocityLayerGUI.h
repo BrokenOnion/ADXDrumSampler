@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.1.2
+  Created with Projucer version: 5.2.0
 
   ------------------------------------------------------------------------------
 
@@ -21,8 +21,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
-
-class Sound; //forward dec
+class VelocityLayer;
 //[/Headers]
 
 
@@ -42,12 +41,12 @@ class VelocityLayerGUI  : public Component,
 {
 public:
     //==============================================================================
-    VelocityLayerGUI ();
+    VelocityLayerGUI (VelocityLayer& parentRef);
     ~VelocityLayerGUI();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-	TabbedComponent& getSoundsList();
+	void addTab(Component* componentToAdd);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -60,6 +59,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+	VelocityLayer& parent;
     //[/UserVariables]
 
     //==============================================================================

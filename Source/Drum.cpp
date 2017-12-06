@@ -12,14 +12,15 @@
 #include "PluginProcessor.h"
 
 Drum::Drum(AdxAudioProcessor& processorRef) 
-	: processor(processorRef)
+	: processor(processorRef), gui(*this)
 {
-
 }
 
 void Drum::createVelocityLayer()
 {
-	velocityLayers.add(new VelocityLayer(*this));
+	VelocityLayer* newLayer = new VelocityLayer(*this);
+	velocityLayers.add(newLayer);
+	gui.addTab(newLayer->getGui());
 }
 
 void Drum::setChannel(Channel* newChannel)
@@ -68,4 +69,9 @@ void Drum::actionListenerCallback(const String& message)
 		int velocity = atoi(message.substring(colonPos + 1).toStdString().c_str());
 		playDrum(velocity);
 	}
+}
+
+Component* Drum::getGui()
+{
+	return &gui;
 }

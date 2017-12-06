@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.1.2
+  Created with Projucer version: 5.2.0
 
   ------------------------------------------------------------------------------
 
@@ -20,6 +20,7 @@
 //[Headers] You can add your own extra header files here...
 #include "PluginEditor.h"
 #include "PluginProcessor.h"
+#include "Drum.h"
 //[/Headers]
 
 #include "DrumGUI.h"
@@ -29,7 +30,8 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-DrumGUI::DrumGUI ()
+DrumGUI::DrumGUI (Drum& parentRef)
+    : parent(parentRef)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -70,7 +72,7 @@ DrumGUI::DrumGUI ()
     nameEditor->setText (String());
 
     addAndMakeVisible (volumeLabel = new Label ("VolumeLabel",
-                                                TRANS("Gain")));
+                                                TRANS("Volume")));
     volumeLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     volumeLabel->setJustificationType (Justification::centred);
     volumeLabel->setEditable (false, false, false);
@@ -130,7 +132,7 @@ DrumGUI::DrumGUI ()
     comboBox->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     comboBox->addListener (this);
 
-    addAndMakeVisible (chokeCombo = new ComboBox ("ChokeComgo"));
+    addAndMakeVisible (chokeCombo = new ComboBox ("ChokeCombo"));
     chokeCombo->setEditableText (false);
     chokeCombo->setJustificationType (Justification::centredLeft);
     chokeCombo->setTextWhenNothingSelected (String());
@@ -251,7 +253,7 @@ void DrumGUI::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == addVelocityButton)
     {
         //[UserButtonCode_addVelocityButton] -- add your button handler code here..
-		//velocityLayers->addTab(" ", Colour(40, 50, 55), new VelocityLayer(*this), true, -1);
+		parent.createVelocityLayer();
         //[/UserButtonCode_addVelocityButton]
     }
     else if (buttonThatWasClicked == testButton)
@@ -330,6 +332,10 @@ void DrumGUI::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void DrumGUI::addTab(Component* componentToAdd)
+{
+	velocityLayers->addTab(" ", Colour(Colours::grey), componentToAdd, true);
+}
 //[/MiscUserCode]
 
 
@@ -343,9 +349,10 @@ void DrumGUI::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="DrumGUI" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="940" initialHeight="660">
+                 parentClasses="public Component" constructorParams="Drum&amp; parentRef"
+                 variableInitialisers="parent(parentRef)" snapPixels="8" snapActive="1"
+                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="940"
+                 initialHeight="660">
   <BACKGROUND backgroundColour="ff313a3f"/>
   <TEXTBUTTON name="AddVelocityButton" id="9da359f4875ffb71" memberName="addVelocityButton"
               virtualName="" explicitFocusOrder="0" pos="640 48 264 56" buttonText="Add Velocity Layer..."
@@ -371,7 +378,7 @@ BEGIN_JUCER_METADATA
               caret="1" popupmenu="1"/>
   <LABEL name="VolumeLabel" id="e0d919758dae5f" memberName="volumeLabel"
          virtualName="" explicitFocusOrder="0" pos="824 616 88 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Gain" editableSingleClick="0" editableDoubleClick="0"
+         edBkgCol="0" labelText="Volume" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          kerning="0" bold="0" italic="0" justification="36"/>
   <SLIDER name="gainSlider" id="889d4391f08c0476" memberName="gainSlider"
@@ -410,7 +417,7 @@ BEGIN_JUCER_METADATA
   <COMBOBOX name="new combo box" id="4ad08c1d9b2f59aa" memberName="comboBox"
             virtualName="" explicitFocusOrder="0" pos="760 224 144 24" editable="0"
             layout="33" items="" textWhenNonSelected="" textWhenNoItems="(no choices)"/>
-  <COMBOBOX name="ChokeComgo" id="e7a9d58bb25cbd9a" memberName="chokeCombo"
+  <COMBOBOX name="ChokeCombo" id="e7a9d58bb25cbd9a" memberName="chokeCombo"
             virtualName="" explicitFocusOrder="0" pos="760 320 142 24" editable="0"
             layout="33" items="" textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <LABEL name="ChokeLabel" id="fbe6d5217e58fe51" memberName="chokeLabel"

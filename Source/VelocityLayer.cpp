@@ -11,8 +11,8 @@
 #include "VelocityLayer.h"
 #include "Drum.h"
 
-VelocityLayer::VelocityLayer(Drum parentRef)
-	: parent(parentRef)
+VelocityLayer::VelocityLayer(Drum& parentRef)
+	: parent(parentRef), gui(*this)
 {
 	counter = 0;
 	function = linearOne;
@@ -20,7 +20,9 @@ VelocityLayer::VelocityLayer(Drum parentRef)
 
 void VelocityLayer::createNewSound()
 {
-	sounds.add(new Sound(*this));
+	Sound* newSound = new Sound(*this);
+	sounds.add(newSound);
+	gui.addTab(newSound->getGui());
 }
 
 Sound* VelocityLayer::getNextSound()
@@ -40,7 +42,7 @@ Sound* VelocityLayer::getNextSound()
 
 float VelocityLayer::calculateCrossfade(int velocity)
 {
-	if (function == linear)
+	if (function == linearOne)
 	{
 		if (velocity > upperBound - 10)
 		{
@@ -65,4 +67,9 @@ void VelocityLayer::setUpperBound(int velocity)
 void VelocityLayer::setLowerBound(int velocity)
 {
 	lowerBound = velocity;
+}
+
+Component* VelocityLayer::getGui()
+{
+	return &gui;
 }

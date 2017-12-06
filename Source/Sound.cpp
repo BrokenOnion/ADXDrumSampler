@@ -35,3 +35,8 @@ AdxTransportSource* Sound::getRoomSource()
 {
 	return new AdxTransportSource(roomSound);
 }
+
+Component* Sound::getGui()
+{
+	return &gui;
+}

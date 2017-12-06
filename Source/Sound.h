@@ -11,6 +11,7 @@
 #pragma once
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Misc.h"
+#include "SoundGUI.h"
 class VelocityLayer;
 
 class Sound
@@ -23,6 +24,7 @@ public:
 	void setRoomSource(File soundFile);
 	AdxTransportSource* getDirectSource();
 	AdxTransportSource* getRoomSource();
+	Component* getGui();
 
 private:
 	VelocityLayer& parent;
@@ -30,4 +32,5 @@ private:
 	AudioFormatReader* roomSound;
 	AudioFormatManager formatManager;
 
+	SoundGUI gui;
 };
