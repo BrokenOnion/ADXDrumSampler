@@ -43,7 +43,6 @@ AdxAudioProcessorEditor::AdxAudioProcessorEditor (AdxAudioProcessor& ownerProc)
     addAndMakeVisible (addDrumButton = new TextButton ("Add Drum Button"));
     addDrumButton->setButtonText (TRANS("Add new drum..."));
     addDrumButton->addListener (this);
-    addDrumButton->setColour (TextButton::buttonColourId, Colour (0xffa45c94));
 
     addAndMakeVisible (roomOutputLabel = new Label ("RoomOutputLabel",
                                                     TRANS("Room Channel Output: ")));
@@ -177,9 +176,8 @@ BEGIN_JUCER_METADATA
                    virtualName="" explicitFocusOrder="0" pos="16 96 990 660" orientation="left"
                    tabBarDepth="50" initialTab="-1"/>
   <TEXTBUTTON name="Add Drum Button" id="fed69c8000d479aa" memberName="addDrumButton"
-              virtualName="" explicitFocusOrder="0" pos="24 16 256 56" bgColOff="ffa45c94"
-              buttonText="Add new drum..." connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="24 16 256 56" buttonText="Add new drum..."
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="RoomOutputLabel" id="c873188a74159e90" memberName="roomOutputLabel"
          virtualName="" explicitFocusOrder="0" pos="848 16 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Room Channel Output: " editableSingleClick="0"

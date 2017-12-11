@@ -1,7 +1,21 @@
-﻿  Drum.cpp
+﻿  Channel.cpp
+  Drum.cpp
   DrumGUI.cpp
   PluginEditor.cpp
+..\..\Source\Drum.cpp(31): warning C4458: declaration of 'name' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\Drum.h(36): note: see declaration of 'Drum::name' (compiling source file ..\..\Source\Drum.cpp)
+..\..\Source\Drum.cpp(69): warning C4458: declaration of 'note' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\Drum.h(35): note: see declaration of 'Drum::note' (compiling source file ..\..\Source\Drum.cpp)
+..\..\Source\DrumGUI.cpp(266): warning C4458: declaration of 'name' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\DrumGUI.h(70): note: see declaration of 'DrumGUI::name' (compiling source file ..\..\Source\DrumGUI.cpp)
+..\..\Source\Channel.cpp(50): warning C4458: declaration of 'samplesPerBlock' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\Channel.h(32): note: see declaration of 'Channel::samplesPerBlock' (compiling source file ..\..\Source\Channel.cpp)
+..\..\Source\Channel.cpp(50): warning C4458: declaration of 'sampleRate' hides class member
+  c:\users\jdown\documents\github\adxdrumsampler\source\Channel.h(33): note: see declaration of 'Channel::sampleRate' (compiling source file ..\..\Source\Channel.cpp)
   PluginProcessor.cpp
+  Sound.cpp
+  SoundGUI.cpp
+  VelocityLayer.cpp
 ..\..\Source\PluginProcessor.cpp(85): warning C4100: 'index': unreferenced formal parameter
 ..\..\Source\PluginProcessor.cpp(89): warning C4100: 'index': unreferenced formal parameter
 ..\..\Source\PluginProcessor.cpp(94): warning C4100: 'newName': unreferenced formal parameter
@@ -10,15 +24,14 @@
   c:\users\jdown\documents\github\adxdrumsampler\source\PluginProcessor.h(73): note: see declaration of 'AdxAudioProcessor::sampleRate' (compiling source file ..\..\Source\PluginProcessor.cpp)
 ..\..\Source\PluginProcessor.cpp(99): warning C4458: declaration of 'samplesPerBlock' hides class member
   c:\users\jdown\documents\github\adxdrumsampler\source\PluginProcessor.h(72): note: see declaration of 'AdxAudioProcessor::samplesPerBlock' (compiling source file ..\..\Source\PluginProcessor.cpp)
-..\..\Source\PluginProcessor.cpp(194): warning C4100: 'destData': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(201): warning C4100: 'sizeInBytes': unreferenced formal parameter
-..\..\Source\PluginProcessor.cpp(201): warning C4100: 'data': unreferenced formal parameter
-..\..\Source\Drum.cpp(64): warning C4458: declaration of 'note' hides class member
-  c:\users\jdown\documents\github\adxdrumsampler\source\Drum.h(34): note: see declaration of 'Drum::note' (compiling source file ..\..\Source\Drum.cpp)
-  VelocityLayer.cpp
-  VelocityLayerGUI.cpp
+..\..\Source\PluginProcessor.cpp(181): warning C4456: declaration of 'i' hides previous local declaration
+  ..\..\Source\PluginProcessor.cpp(177): note: see declaration of 'i'
+..\..\Source\PluginProcessor.cpp(203): warning C4100: 'destData': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(210): warning C4100: 'sizeInBytes': unreferenced formal parameter
+..\..\Source\PluginProcessor.cpp(210): warning C4100: 'data': unreferenced formal parameter
 ..\..\Source\VelocityLayer.cpp(49): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 ..\..\Source\VelocityLayer.cpp(53): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  VelocityLayerGUI.cpp
 c:\users\jdown\documents\github\adxdrumsampler\source\velocitylayer.cpp(60): warning C4715: 'VelocityLayer::calculateCrossfade': not all control paths return a value
 c:\users\jdown\documents\github\adxdrumsampler\source\velocitylayer.cpp(40): warning C4702: unreachable code
   ADX_SharedCode.vcxproj -> C:\Users\jdown\Documents\GitHub\ADXDrumSampler\Builds\VisualStudio2017\x64\Debug\Shared Code\ADX.lib

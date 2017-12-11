@@ -229,16 +229,16 @@ void DrumGUI::resized()
     nameEditor->setBounds (736, 128, 128, 24);
     volumeLabel->setBounds (824, 616, 88, 24);
     gainSlider->setBounds (840, 368, 56, 240);
-    panSlider->setBounds (760, 256, 192, 56);
-    panLabel->setBounds (632, 264, 40, 40);
+    panSlider->setBounds (760, 304, 192, 56);
+    panLabel->setBounds (632, 312, 40, 40);
     testButton->setBounds (640, 416, 160, 96);
     setNameButton->setBounds (872, 128, 32, 24);
     deleteButton->setBounds (640, 536, 160, 96);
     velocityLayers->setBounds (16, 16, 600, 632);
     outputLabel->setBounds (632, 224, 64, 24);
     comboBox->setBounds (760, 224, 144, 24);
-    chokeCombo->setBounds (760, 320, 142, 24);
-    chokeLabel->setBounds (632, 320, 150, 24);
+    chokeCombo->setBounds (760, 272, 142, 24);
+    chokeLabel->setBounds (632, 272, 150, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -246,8 +246,6 @@ void DrumGUI::resized()
 void DrumGUI::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
-	//int currentIndex = editor.getDrumsList().getCurrentTabIndex();
-	//Component* current = editor.getDrumsList().getTabContentComponent(currentIndex);
     //[/UserbuttonClicked_Pre]
 
     if (buttonThatWasClicked == addVelocityButton)
@@ -259,15 +257,14 @@ void DrumGUI::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == testButton)
     {
         //[UserButtonCode_testButton] -- add your button handler code here..
+		parent.playDrum(100);
         //[/UserButtonCode_testButton]
     }
     else if (buttonThatWasClicked == setNameButton)
     {
         //[UserButtonCode_setNameButton] -- add your button handler code here..
-		//if (current == this)
-		{
-		//	editor.getDrumsList().setTabName(currentIndex, nameEditor->getText());
-		}
+		String name = nameEditor->getText();
+		parent.setName(name);
         //[/UserButtonCode_setNameButton]
     }
     else if (buttonThatWasClicked == deleteButton)
@@ -387,12 +384,12 @@ BEGIN_JUCER_METADATA
           textBoxEditable="1" textBoxWidth="60" textBoxHeight="20" skewFactor="4"
           needsCallback="1"/>
   <SLIDER name="PanSlider" id="58c1292f4128d0fb" memberName="panSlider"
-          virtualName="" explicitFocusOrder="0" pos="760 256 192 56" min="-90"
+          virtualName="" explicitFocusOrder="0" pos="760 304 192 56" min="-90"
           max="90" int="1" style="RotaryHorizontalDrag" textBoxPos="TextBoxLeft"
           textBoxEditable="1" textBoxWidth="60" textBoxHeight="24" skewFactor="1"
           needsCallback="1"/>
   <LABEL name="PanLabel" id="d774f9122e77b0e4" memberName="panLabel" virtualName=""
-         explicitFocusOrder="0" pos="632 264 40 40" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="632 312 40 40" edTextCol="ff000000"
          edBkgCol="0" labelText="Pan:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          kerning="0" bold="0" italic="0" justification="33"/>
@@ -418,10 +415,10 @@ BEGIN_JUCER_METADATA
             virtualName="" explicitFocusOrder="0" pos="760 224 144 24" editable="0"
             layout="33" items="" textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <COMBOBOX name="ChokeCombo" id="e7a9d58bb25cbd9a" memberName="chokeCombo"
-            virtualName="" explicitFocusOrder="0" pos="760 320 142 24" editable="0"
+            virtualName="" explicitFocusOrder="0" pos="760 272 142 24" editable="0"
             layout="33" items="" textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <LABEL name="ChokeLabel" id="fbe6d5217e58fe51" memberName="chokeLabel"
-         virtualName="" explicitFocusOrder="0" pos="632 320 150 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="632 272 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Choke Group:" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>

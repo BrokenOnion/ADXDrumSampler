@@ -28,6 +28,11 @@ void Drum::setChannel(Channel* newChannel)
 	channel = newChannel;
 }
 
+void Drum::setName(String name)
+{
+	this->name = name;
+}
+
 void Drum::playDrum(int velocity)
 {
 	Array<AdxTransportSource*> directMix;

@@ -23,6 +23,7 @@ public:
 
 	void createVelocityLayer();
 	void setChannel(Channel* newChannel);
+	void setName(String name);
 	void playDrum(int velocity);
 	void actionListenerCallback(const String& message);
 	Component* getGui();

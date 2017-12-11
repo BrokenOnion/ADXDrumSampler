@@ -174,7 +174,16 @@ void AdxAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& mid
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
-
+	for (int i = 0; i < channels.size(); i++)
+	{
+		ScopedPointer<AudioSourceChannelInfo> curBuffer = new AudioSourceChannelInfo();
+		int outL = channels.getUnchecked(i)->getNextAudioBlock(*curBuffer);
+		for (int i = 0; i < buffer.getNumSamples(); i++)
+		{
+			buffer.addSample(outL, i, curBuffer->buffer->getSample(0, i));
+			buffer.addSample(outL + 1, i, curBuffer->buffer->getSample(0, i));
+		}
+	}
 }
 
 //==============================================================================
